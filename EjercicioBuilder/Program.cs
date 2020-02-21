@@ -1,4 +1,7 @@
 ﻿using System;
+using EjercicioBuilder.Buider;
+using EjercicioBuilder.Models;
+using EjercicioBuilder.Director;
 
 namespace EjercicioBuilder
 {
@@ -6,7 +9,13 @@ namespace EjercicioBuilder
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var compu = new Ensambladora(new BuilderComputadoraGamer(TarjetaVideo._256gb));
+            Console.WriteLine(compu.ObtenerComputadora().ToString());
+            compu = new Ensambladora(new BuilderComputadoraOficina());
+            Console.WriteLine(compu.ObtenerComputadora().ToString());
+            compu = new Ensambladora(new BuilderUltraBook());
+            Console.WriteLine(compu.ObtenerComputadora().ToString());
+            Console.ReadKey();
         }
     }
 }
